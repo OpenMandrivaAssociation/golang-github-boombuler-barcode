@@ -1,0 +1,38 @@
+From 8a3bb0c01cb040714e80c6783033c3f7c885c1b7 Mon Sep 17 00:00:00 2001
+From: Ed Marshall <esm@logic.net>
+Date: Wed, 14 Mar 2018 20:30:44 -0700
+Subject: [PATCH] Correct a few format string issues.
+
+---
+ utils/runeint_test.go | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/utils/runeint_test.go b/utils/runeint_test.go
+index f1fdbc5..4e66820 100644
+--- a/utils/runeint_test.go
++++ b/utils/runeint_test.go
+@@ -4,7 +4,7 @@ import "testing"
+ 
+ func Test_RuneToIntIntToRune(t *testing.T) {
+ 	if IntToRune(0) != '0' {
+-		t.Errorf("failed IntToRune(0) returned %d", string(IntToRune(0)))
++		t.Errorf("failed IntToRune(0) returned %d", IntToRune(0))
+ 	}
+ 	if IntToRune(9) != '9' {
+ 		t.Errorf("failed IntToRune(9) returned %d", IntToRune(9))
+@@ -13,12 +13,12 @@ func Test_RuneToIntIntToRune(t *testing.T) {
+ 		t.Errorf("failed IntToRune(10) returned %d", IntToRune(10))
+ 	}
+ 	if RuneToInt('0') != 0 {
+-		t.Error("failed RuneToInt('0') returned %d", RuneToInt(0))
++		t.Errorf("failed RuneToInt('0') returned %d", RuneToInt(0))
+ 	}
+ 	if RuneToInt('9') != 9 {
+-		t.Error("failed RuneToInt('9') returned %d", RuneToInt(9))
++		t.Errorf("failed RuneToInt('9') returned %d", RuneToInt(9))
+ 	}
+ 	if RuneToInt('F') != -1 {
+-		t.Error("failed RuneToInt('F') returned %d", RuneToInt('F'))
++		t.Errorf("failed RuneToInt('F') returned %d", RuneToInt('F'))
+ 	}
+ }
